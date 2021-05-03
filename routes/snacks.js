@@ -10,3 +10,5 @@ router.get('/', async(req,res) => {
         return res.status(404).json({"error": "Could not find all snacks."});
     }
 })
+
+module.exports = router;
