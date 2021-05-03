@@ -1,0 +1,7 @@
+<h1>{{data.firstName}} {{data.lastName}} Information</h1>
+<ul>
+    {{#each data}}
+        <li>{{@key}}: {{this}}</li>
+    {{/each}}
+</ul>
+<a href="/logout">Click here to logout!</a>

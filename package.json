@@ -1,0 +1,20 @@
+{
+  "name": "the-snackbar",
+  "version": "1.0.0",
+  "description": "App to help people know what snacks they might enjoy",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Christopher Giordano",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.0",
+    "express-session": "^1.17.1",
+    "handlebars": "^4.7.7",
+    "mongodb": "^3.6.6",
+    "sqlite3": "^5.0.2"
+  }
+}

@@ -1,0 +1,30 @@
+main {
+    text-align: center;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+ul {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    text-decoration: underline;
+}
+
+a {
+    padding: 10px;
+    border: 2px blue dashed;
+    transition: border 200ms, background-color 200ms;
+}
+
+a:hover {
+    border: 2px blue solid;
+    background-color: lightblue;
+}
+
+.errorDiv {
+    color: red;
+    padding: 5px;
+}
