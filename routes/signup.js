@@ -3,26 +3,33 @@ const express = require("express");
 const fs = require('fs');
 const path = require("path");
 const router = express.Router();
+const usersData = require('../data/users');
+
+function isNonEmptyString (element) {
+    if (typeof element == 'string') {
+        return element.trim().length > 0;
+    }
+    return false;
+}
 
 router.post("/", async (req, res) => {
-    req.body.username = req.body.username.toLowerCase();
     if(!isNonEmptyString(req.body.username) || !isNonEmptyString(req.body.password || !isNonEmptyString(req.body.email) || !isNonEmptyString(req.body.confirmPassword))){
-        return res.status(404).render('../views/login', {errorMessage :'You need to submit inputs as strings that are not empty.'});
+        return res.status(404).json({'errorMessage' :'You need to submit inputs as strings that are not empty.'});
     }
     if(req.body.password !== req.body.confirmPassword){
-        return res.status(404).render('../views/login', {errorMessage :'Passwords do not match.'});
+        return res.status(404).json({'errorMessage' :'Passwords do not match.'});
     }
 
     let userObject;
 
     try{
-        new_user = await usersData.create(req.body.username, req.body.password, []);
-        userObject = await usersData.getByName(req.body.username);
+        const new_user = await usersData.create(req.body.username, req.body.password, []);
+        const userObject = await usersData.getByName(req.body.username);
         req.session.user = userObject
         // return res.status(200).render('login/index.handlebars');
         return res.status(200).json(req.session.user);
     } catch {
-        return res.status(200).json()
+        return res.status(401).json({"errorMessage": "Signup was not completed."});
         // return res.status(401).render('login/error.handlebars', {errorMessage :'Unable to make account'})
     }  
 

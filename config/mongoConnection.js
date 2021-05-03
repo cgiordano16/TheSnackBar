@@ -12,7 +12,6 @@ module.exports = async () => {
       useUnifiedTopology: true
     });
     _db = await _connection.db(mongoConfig.database);
-    console.log(_db);
   }
   
   return _db;

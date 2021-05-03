@@ -22,7 +22,7 @@ module.exports = {
         const userCollection = await users();
         let hashedPassword = await bcrypt.hash(password, saltRounds);
         let newUser = {
-            name: name.trim,
+            name: name.trim(),
             password: hashedPassword,
             tags: tags
         }

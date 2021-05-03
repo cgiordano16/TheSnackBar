@@ -7,6 +7,8 @@ async function main() {
     const db = await dbConnection();
     await db.dropDatabase();
     const chrisG = await users.create('ChrisG', 'helloworld');
+    const getChrisG = await users.getByName('ChrisG');
+    console.log(getChrisG);
     const updatedCGTags = await users.updateTags(chrisG._id, ['chips']);
     const makeWelchs = await snacks.create(`Welch's Fruit Snacks`, `Gummy snack that has the flavor of different fruits.`, [`Gummy`, `Fruit`, `Welch's`]);
     console.log('Done seeding database');

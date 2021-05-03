@@ -22,35 +22,35 @@ app.use(express.urlencoded({ extended: true }));
 app.engine('handlebars', handlebars({ defaultLayout: 'main'}));
 app.set('view engine', handlebars);
 
-app.all('/', async (req, res, next) => {
-    if(req.session.userData) {
-        console.log(`${new Date().toUTCString()} ${req.method} ${req.originalUrl} (Authenticated User)`);
-        return res.redirect('/private');
-    } else {
-        console.log(`${new Date().toUTCString()} ${req.method} ${req.originalUrl} (Non-Authenticated User)`);
-        next();
-    }
-})
+// app.all('/', async (req, res, next) => {
+//     if(req.session.userData) {
+//         console.log(`${new Date().toUTCString()} ${req.method} ${req.originalUrl} (Authenticated User)`);
+//         return res.redirect('/private');
+//     } else {
+//         console.log(`${new Date().toUTCString()} ${req.method} ${req.originalUrl} (Non-Authenticated User)`);
+//         next();
+//     }
+// })
 
-app.use('/private', async (req, res, next) => {
-    if (!req.session.userData) {
-        console.log(`${new Date().toUTCString()} ${req.method} ${req.originalUrl} (Non-Authenticated User)`);
-        return res.status(403).render('private/error.handlebars');
-    } else {
-        console.log(`${new Date().toUTCString()} ${req.method} ${req.originalUrl} (Authenticated User)`);
-        next();
-    }
-})
+// app.use('/private', async (req, res, next) => {
+//     if (!req.session.userData) {
+//         console.log(`${new Date().toUTCString()} ${req.method} ${req.originalUrl} (Non-Authenticated User)`);
+//         return res.status(403).render('private/error.handlebars');
+//     } else {
+//         console.log(`${new Date().toUTCString()} ${req.method} ${req.originalUrl} (Authenticated User)`);
+//         next();
+//     }
+// })
 
-app.use('/login', async (req, res, next) => {
-    if (req.session.userData) {
-        console.log(`${new Date().toUTCString()} ${req.method} ${req.originalUrl} (Authenticated User)`);
-        return res.redirect('/private');
-    } else {
-        console.log(`${new Date().toUTCString()} ${req.method} ${req.originalUrl} (Non-Authenticated User)`);
-        next();
-    }
-})
+// app.use('/login', async (req, res, next) => {
+//     if (req.session.userData) {
+//         console.log(`${new Date().toUTCString()} ${req.method} ${req.originalUrl} (Authenticated User)`);
+//         return res.redirect('/private');
+//     } else {
+//         console.log(`${new Date().toUTCString()} ${req.method} ${req.originalUrl} (Non-Authenticated User)`);
+//         next();
+//     }
+// })
 
 routes(app);
 
