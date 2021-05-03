@@ -1,6 +1,5 @@
 const { ObjectID } = require('mongodb');
 const mongoCollections = require('../config/mongoCollections');
-const { getAll, get } = require('./users');
 const snacks = mongoCollections.snacks;
 
 module.exports = {
@@ -19,6 +18,7 @@ module.exports = {
             description: description,
             tags: tags
         }
+        const snackCollection = await snacks();
         const insertInfo = await snackCollection.insertOne(newSnack);
         if (insertInfo.insertedCount === 0) throw 'Could not add snack';
         const newId = insertInfo.insertedId;
