@@ -1,38 +1,190 @@
-.App {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+.menu_nav{
+  font-weight: bold;
+  font-style: italic;
+  background-color :#181115;
+  color: #EEF8FC;
+  width: 100%;
+  height: auto;
+  text-align: right;
+  border-style: solid;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+
+.header_home{
+  font-weight: bold;
+  font-style: italic;
+  font-size: 65px;
+  color: #EEF8FC;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header_desc{
+  font-weight: lighter;
+  padding-bottom: 10px;
+  font-size: 20px;
+  color: #EEF8FC;
+  width: 100%;
+  text-align: center;
+  border-style: solid;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.login_button_container{
+  display: inline-flex;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  padding: 10px;
+  
+}
+.signin_button_container{
+  display: inline-flex;
+  justify-items: center;
+  padding-right: 15px;
+  padding-bottom: 5px;
+  
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+hr{
+  height: 5px;
+  width: 100% ;
+  color: #181115;
+  background-color: #181115;
+}
+
+.body_text_container{
+  padding-top: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 20px;
+  text-align: center;
+  background-color: #F7EDE2;
+}
+#body_text{
+  font-size: 25px;
+  font-weight: lighter;
+  color: #3D2933;
+  background-color: #F7EDE2;
+  width: 100%;
+}
+
+footer{
+  text-align: center;
+  font-size: 10px;
+  font-style: italic;
+  font-weight: lighter;
+  background-color: #181115;
+}
+
+.nav_container{
+  padding-right: 15px;
+  background-color: #181115;
+  width: 100%;
+}
+.bio-container{
+  background-color:white;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.bio{
+  width: 25%;
+  display: inline-flex;
+  padding-right: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 15px;
+  font-weight: lighter;
+  text-align: center;
+  color: #3D2933;
+  background-color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.image-container{
+  padding-top: 15px;
+  background-color:white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.profile_picture{
+  display: block;
+}
+
+.page-header{
+  text-align: left;
+  font-size: 40px;
+  padding-left: 25px;
+  padding-bottom: 5px;
+}
+
+.page_desc{
+  font-weight: lighter;
+  padding-left: 45px;
+  padding-bottom: 10px;
+  font-size: 20px;
+  color: #EEF8FC;
+  width: 100%;
+  text-align: left;
+}
+.name-container{
+  width: 100%;
+  background-color: white;
+}
+.nametag{
+  color: #3D2933;
+  text-align: center;
+  font-style: normal;
+}
+
+.catalog-container{
+  width: 100%;
+  padding: 70px;
+  background-color: white;
+  border        : 1px solid #cccccc;
+  border-radius : 20px / 10px;
+  padding       : 20px;
+  padding-bottom: 40px;
+
+}
+
+.catalog-thumbnail{
+  display: flex;
+  justify-content: left;
+  text-align: left;
+}
+
+.catalog-itemName{
+  text-align: left;
+  padding-top: 5px;
+  color: #181115;
+  font-size: 35px;
+  font-style: normal;
+
+}
+
+.catalog-itemDesc{
+  text-align: left;
+  width: 100%;
+  color: #3D2933;
+  font-size: 20px;
+  font-weight: lighter;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  
 }
