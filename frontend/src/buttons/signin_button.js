@@ -1,4 +1,5 @@
 import React, {useState, useRef} from 'react'
+import {useHistory} from 'react-router-dom'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -10,7 +11,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 export function Sign_In_Button(){
   
     const [open, setOpen] = React.useState(false);
-
+    let history = useHistory();
     
     const handleInputChange = e =>{
       console.log(e.target)
@@ -31,6 +32,7 @@ export function Sign_In_Button(){
       })
       .then(response => response.json())
       .then(result => {
+        history.push('/catalog');
         console.log('Success: ', result);
       })
       .catch(error => {

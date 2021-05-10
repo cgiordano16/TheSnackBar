@@ -3,6 +3,7 @@ const app = express();
 const static = express.static('./public');
 const session = require('express-session');
 const routes = require('./routes');
+var cors = require("cors");
 const handlebars = require('express-handlebars');
 
 app.use(
@@ -18,6 +19,7 @@ app.use(
 app.use('/public', static);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 app.engine('handlebars', handlebars({ defaultLayout: 'main'}));
 app.set('view engine', handlebars);
@@ -54,6 +56,6 @@ app.set('view engine', handlebars);
 
 routes(app);
 
-app.listen(3000, () => {
-    console.log('The server is up and running: 3000');
+app.listen(9000, () => {
+    console.log('The server is up and running: 9000');
 })

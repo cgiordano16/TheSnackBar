@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {User_Buttons} from '../buttons/User_Buttons'
 import {Sign_In_Button} from '../buttons/signin_button'
 import board from '../images/board.jpg'
@@ -15,12 +15,37 @@ function header(){
     )
   }
 
-export default function home() {
+export default function Home() {
+  const [session, setSession] = useState(false);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    fetch('http://localhost:9000/login/session',{
+          method: 'GET',
+          headers: {'Content-Type': 'application/json'},
+        })
+        .then(response => response.json())
+        .then(result => {
+          console.log(result);
+          if (Object.entries(result).length !== 0) {
+            setSession(true);
+            setLoading(false);
+          } else {
+            setSession(false);
+            setLoading(false);
+          }
+        })
+        .catch(error => {
+          console.error('Error: ', error)
+        });  
+  }, []);
+  if (loading === true) {
+    return <h2>Loading...</h2>
+  }
     return (
         <>
           <div>
-            <>{User_Buttons()}</>
-            <>{Sign_In_Button()}</>
+            <User_Buttons />
+            <Sign_In_Button/>
             <>{header()}</>
             <div className = "homepage_images_container">
               <img src = {board} alt = 'some text'/>

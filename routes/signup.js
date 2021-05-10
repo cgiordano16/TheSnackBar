@@ -13,7 +13,7 @@ function isNonEmptyString (element) {
 }
 
 router.post("/", async (req, res) => {
-    if(!isNonEmptyString(req.body.username) || !isNonEmptyString(req.body.password || !isNonEmptyString(req.body.email) || !isNonEmptyString(req.body.confirmPassword))){
+    if(!isNonEmptyString(req.body.username) || !isNonEmptyString(req.body.password)  || !isNonEmptyString(req.body.confirmPassword)){
         return res.status(404).json({'errorMessage' :'You need to submit inputs as strings that are not empty.'});
     }
     if(req.body.password !== req.body.confirmPassword){
@@ -25,9 +25,9 @@ router.post("/", async (req, res) => {
     try{
         const new_user = await usersData.create(req.body.username, req.body.password, []);
         const userObject = await usersData.getByName(req.body.username);
-        req.session.user = userObject
+        req.session.userData = userObject
         // return res.status(200).render('login/index.handlebars');
-        return res.status(200).json(req.session.user);
+        return res.status(200).json(req.session.userData);
     } catch {
         return res.status(401).json({"errorMessage": "Signup was not completed."});
         // return res.status(401).render('login/error.handlebars', {errorMessage :'Unable to make account'})

@@ -1,16 +1,16 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
-import {Redirect} from 'react-router-dom'
+import {Redirect, useHistory} from 'react-router-dom'
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
-import catalog from '../catalog/catalog'
-import { Link } from 'react-router-dom';
+
 
 export function User_Buttons(){
     const [open, setOpen] = React.useState(false);
+    let history = useHistory();
   
     const handleClickOpen = () => {
       setOpen(true);
@@ -40,14 +40,12 @@ export function User_Buttons(){
       .then(response => response.json())
       .then(result => {
         console.log('Success: ', result);
+        history.push('/catalog');
         
       })
       .catch(error => {
         console.error('Error: ', error)
       });
-      return (
-        <Redirect to={catalog}/>
-      );
     }
 
     const [values, setValues] = React.useState({username: '', password: ''})

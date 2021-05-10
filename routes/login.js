@@ -57,4 +57,12 @@ router.post('/', async (req, res) => {
     // }
 })
 
+router.get('/session', async (req, res) => {
+    if (req.session.userData) {
+        return res.status(200).send({username: req.session.userData.username, tags: req.session.userData.tags});
+    } else {
+        return res.status(200).send({});
+    }
+})
+
 module.exports = router;
